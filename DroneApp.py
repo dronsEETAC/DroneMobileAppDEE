@@ -33,22 +33,22 @@ Builder.load_string(
                 Button:
                         id: LEDs
                         text: "LEDs"
-                        on_press: root.LEDsControl()
+                        on_press: root.leds_control()
                 Button:
                         id: Camera
                         text: "Camera"
-                        on_release: root.CameraControl()
+                        on_release: root.camera_control()
                 Button:
                         id: Autopilot
                         text: "Autopilot"
-                        on_release: root.AutopilotControl()
+                        on_release: root.autopilot_control()
 
 <ConnectWidget>:
         size_hint:(1, .1)
         Button:
                 id: connect
                 text: "Connect"
-                on_press: root.connectWithDronePlatform()
+                on_press: root.connect_with_drone_platform()
 
 <ContainerBox>:
         orientation: 'vertical'
@@ -286,9 +286,9 @@ class ConnectWidget(BoxLayout):
 
     def __init__(self, **kwargs):
         super(ConnectWidget, self).__init__(**kwargs)
-        self.client = mqtt.Client("droneApp")
-        self.global_broker_address = "127.0.0.1"
-        self.global_broker_port = 1884
+        self.client = mqtt.Client("droneApp", transport="websockets")
+        self.global_broker_address = "localhost"
+        self.global_broker_port = 8083
 
     # to be done when the button is clicked
     def connect_with_drone_platform(self):
