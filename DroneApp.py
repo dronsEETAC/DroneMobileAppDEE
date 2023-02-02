@@ -25,7 +25,7 @@ Builder.load_string(
         Label:
                 id: welcome
                 text: "Welcome"
-    
+
 <ButtonsWidget>:
         size_hint:(1, .1)
         BoxLayout:
@@ -59,8 +59,8 @@ Builder.load_string(
                 id: buttons
         ConnectWidget:
                 id: connection
-    
-    
+
+
 """
 )
 
